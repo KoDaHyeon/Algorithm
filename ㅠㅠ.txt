@@ -1,0 +1,78 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+  ios::sync_with_stdio(false); 
+  cin.tie(NULL);
+
+  string input; //초기에 입력한 문자열
+  int cmd_cnt; //명령어 개수
+  cin >> input;
+  cin >> cmd_cnt;
+
+  //vector에 입력 문자열을 한 문자씩 넣음
+  vector<char> editor(input.size());
+  int input_size = input.size();
+  for(int i=0; i<input_size; i++){
+    editor[i] = input[i];
+  }
+
+  int cursor = editor.size()-1; //cursor = k일때 커서는 index k에 있는 문자 오른쪽에 있음(-1일땐 맨 왼쪽에 존재)
+
+  cin.ignore(256,'\n');
+  for(int i=0; i<cmd_cnt; i++){
+    //명령어를 받고 수행
+    string cmd; //명령어
+    getline(cin, cmd);
+    
+    if(cmd == "L"){
+      if(cursor != -1)
+        cursor--;
+    }
+    else if(cmd == "D"){
+      if(cursor < editor.size()-1)
+        cursor++;
+    }
+    else if(cmd == "B"){
+      if(cursor != -1){
+        editor.erase(editor.begin()+cursor);
+        cursor--;
+      }
+    }
+    else if(cmd[0] == 'P'){
+      editor.insert(editor.begin()+cursor+1, cmd[2]);
+      cursor++;
+    }
+  }
+
+  for(const auto& element : editor){
+    cout << element;
+  }
+}
+
+
+abcd
+
+top   top
+            
+b      c
+a     d
+
+tmp : b a
+
+abcd
+
+
+
+
+char a = 'c';
+(int)a 는 문자 c의 아스키코드값
+
+int arr[5] = {-1, }; // arr = {-1,0,0,0,0}
+
+문자열분석문제: while(getline ) 해주면 한줄 입력을 받아야 while문이 돌아감
+

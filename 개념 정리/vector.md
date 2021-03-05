@@ -27,10 +27,9 @@ https://hwan-shell.tistory.com/119
     ```
 
     - v.size() (벡터의 크기)는 원소를 삭제할때마다 업뎃됨
-      - 원소를 추가할때도 업뎃됨!
     - i번째 요소를 삭제하면 원래 i+1번째였던 요소가 i번째가 되면서 원소들이 앞으로 하나씩 밀림
-- 삭제한 경우에는 삭제 후 iterator를 한칸 앞으로 옮겨줘야 다음 원소를 조회할 수 있음
-    
+    - 삭제한 경우에는 삭제 후 iterator를 한칸 앞으로 옮겨줘야 다음 원소를 조회할 수 있음
+
   - 2056.cpp 참고
 
 <br>
@@ -52,14 +51,14 @@ https://hwan-shell.tistory.com/119
 
   - 벡터 선언시 벡터의 크기를 정할 수 없는 경우
 
-      - 벡터 선언 -> resize로 벡터의 원소 개수 정해주기
+    - 벡터 선언 -> resize로 벡터의 원소 개수 정해주기
 
-        ```cpp
-        vector<int> list;
-        int size; //벡터 원소 개수
-        cin >> size;
-        list.resize(size); //벡터크기 size, 모든 원소는 0으로 초기화됨
-        ```
+      ```cpp
+      vector<int> list;
+      int size; //벡터 원소 개수
+      cin >> size;
+      list.resize(size); //벡터크기 size, 모든 원소는 0으로 초기화됨
+      ```
 
   - 메모리를 추가로 할당받을 때, 원래 메모리의 용량을 늘리는 것이 아닌, 더 큰 메모리를 할당해서 그곳에 데이터를 복사하고, 이전 데이터는 삭제함<br>
 
@@ -121,9 +120,9 @@ https://hwan-shell.tistory.com/119
       5개의 행, 3개의 열(값이 모두 1)인 2차원 벡터
 
       (크기가 3이고 값이 모두 1인 벡터 5개를 원소로 갖는 벡터)
-    
+
     - ```cpp
-    vector < vector<int> > v(5, vector<int>());
+      vector < vector<int> > v(5, vector<int>());
       ```
 
       벡터를 원소로 갖는, 크기가 5인 2차원 벡터(5개의 행)
@@ -131,7 +130,7 @@ https://hwan-shell.tistory.com/119
   - 선언 후 할당
 
     - ```cpp
-    vector< vector<int> > v;
+      vector< vector<int> > v;
       v.assign(5, vector<int>(3, 1)); 
       //5개의행, 3개의 열(값이 모두 1)인 2차원벡터 공간 할당
       ```
@@ -140,10 +139,27 @@ https://hwan-shell.tistory.com/119
       vector< vector<int> > v; //2차원벡터 선언
       vector<int> v_ele; //2차원벡터에 각 원소로 들어갈 1차원벡터를 선언해줘야 함
       v.emplace_back(v_ele); //v[0]
-    v.emplace_back(v_ele); //v[1]
+      v.emplace_back(v_ele); //v[1]
       v[0].emplace_back(3); //v[0][0] == 3;
-    v[0].emplace_back(4); //v[0][1] == 4;
+      v[0].emplace_back(4); //v[0][1] == 4;
       ```
+
+    - ```cpp
+      vector<vector<double>> v;
+      v.assign({
+            {0, 0}, //v[0][0]=0, v[0][1]=0
+            {0, 1}, //v[1][0]=0, v[1][1]=1
+            {1, 0},
+            {1, 1},
+            {0.5, 1},
+            {1, 0.5},
+            {0, 0.5},
+          {0.5, 0},
+            {0.5, 0.5}
+      });
+      ```
+
+      
 
   - 접근
 
@@ -159,9 +175,4 @@ https://hwan-shell.tistory.com/119
       ' v [행] [열] '형태로 접근
 
   - 1780.cpp 참고
-
-
-
-
-
-vector<map> 도 가능
+  - `vector<map>`도 가능

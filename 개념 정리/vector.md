@@ -36,7 +36,8 @@ https://hwan-shell.tistory.com/119
 
 - **resize 함수**
 
-  - ```cpp
+  - 1차원 벡터
+    ```cpp
     vector<int> list;
     list.resize(10); //벡터의 사이즈는 10, 모든 원소를 0으로 초기화
     list.resize(5, 3); //벡터의 사이즈는 5, 모든 원소를 3으로 초기화
@@ -48,6 +49,12 @@ https://hwan-shell.tistory.com/119
     - 벡터의 내부 용량을 딱 정해놓는 것
     - resize후에는 바로 **'벡터이름[index]'**로 원소에 접근 가능
     - 사이즈를 10으로 해놨을 경우, 15개의 데이터가 들어와도 5개는 버려짐, 7개의 데이터가 들어와도 사이즈는 10으로 유지
+
+  - 2차원 벡터
+    ```cpp
+    vector< vector<int> > list;
+    list.resize(10, vector<int>(5, 1)); //1로 초기화된 5크기의 int형 단일 벡터가 10개
+    ```
 
   - 벡터 선언시 벡터의 크기를 정할 수 없는 경우
 
